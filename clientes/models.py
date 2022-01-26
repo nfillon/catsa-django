@@ -27,7 +27,7 @@ class Proyecto(models.Model):
     for r in range(2000, (datetime.datetime.now().year+1)):
         YEAR_CHOICES.append((r,r))
     tipo_proyecto=models.CharField(max_length=50)  
-    nombre_proyecto=models.CharField(max_length=500)
+    nombre_proyecto=models.TextField(max_length=500)
     year = models.IntegerField(choices=YEAR_CHOICES,default=datetime.datetime.now().year)
     autor=models.ForeignKey(User, on_delete=models.CASCADE)
     clientes=models.ManyToManyField(Cliente)     
