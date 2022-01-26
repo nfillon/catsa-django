@@ -15,18 +15,26 @@ def list_client(request):
 
 def create_cliente(request):
     form = ClienteForm(request.POST or None)
-    formProyecto = ProyectosForm(request.POST or None)
+   
         
     if form.is_valid():
         form.save()
         return redirect('list_client')
-    
+    return render(request, 'admcatsa/admcatsa-form.html', {'form': form,  }) 
+
+
+def create_proyecto(request):
+    formProyecto = ProyectosForm(request.POST or None)
+
     if formProyecto.is_valid():
         formProyecto.save()
         return redirect('list_client')
     
     
-    return render(request, 'admcatsa/admcatsa-form.html', {'form': form, 'formProyecto': formProyecto }) 
+    return render(request, 'admcatsa/admcatsa-form-proyecto.html', {'formProyecto': formProyecto }) 
+
+
+
 
 def update_cliente(request, id):
     clientes =  Cliente.objects.get(id=id)
