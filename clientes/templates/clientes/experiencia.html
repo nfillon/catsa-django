@@ -1,0 +1,87 @@
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <img class="rounded mx-auto d-block w-100" style="padding-top: 4%" src="{% static 'Catsaweb/images/experienciasImg5.png'%}"
+                 alt="Avion">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
+            <h3 class="text-sm-center text-md-center text-lg-center  text-xl-center text-center fs-4 m-1 h3Expiencias">
+                EXPERIENCIA</h3>
+            <p class="text-sm-center text-md-center text-lg-center  text-xl-center text-center fs-6 m-5">
+                CATSA, Inició sus actividades del ramo de la construcción en el año 2007,
+                con urbanizaciones en multifamiliares, realizando trabajos de movimientos
+                de tierra y construcción de mezclas, compactados de bases, pavimentaciones
+                con concreto hidráulico y asfáltico.</p>
+            <p class="text-sm-center text-md-center text-lg-center  text-xl-center text-center fs-6 m-5">
+                Se ha especializado en paviimentaciones en aeropuertos, aeródromos, autopistas,
+                carreteras federales así como para vialidades estatales y municipales, además de
+                la construcción de proyectos de electrificación en media y baja tensión y para obra
+                electromecánica y ayudas visuales.</p>
+            <p class="text-sm-center text-md-center text-lg-center  text-xl-center text-center fs-6  m-5">
+                Cuenta con personal técnico, administrativo y obrero especializado en aeropuertos,
+                carreteras y electrificación.</p>
+        </div>
+    </div>
+</section>
+ <section class="container-fluid">
+    <div class="row justify-content-center ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <h3 class="text-sm-center text-md-center text-lg-center text-xl-center text-center fs-2 mt-5">CARTERA DE
+                CLIENTES</h3>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                <ul class="list-unstyled fs-6 lh-2 mx-3 pt-5">
+                 
+                    {%for cliente in clientes %}
+               
+                         <li class=" bi bi-bookmark-check-fill">{{cliente.nombre_cliente}}</li>
+             
+                    {%endfor%} 
+                </ul>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <p class="hidenBT">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                        Mas Clientes
+                    </button>
+                </p>
+                <div>
+                    <ul class="list-unstyled fs-6 lh-2 mx-3 pt-5 collapse show" id="collapseExample">
+                    {%for cliente1 in clientes1 %}
+               
+                        <li class=" bi bi-bookmark-check-fill">{{cliente1.nombre_cliente}}</li>
+                     
+                     {%endfor%} 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>     
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5 mb-5">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner ">
+                    <div class="carousel-item active">
+                        <img src="{% static 'Catsaweb/images/5-1.jpg'%}" class=" d-block img-responsive w-50 mx-auto " alt="maquinaria">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'Catsaweb/images/5-2.jpg'%}" class=" d-block img-responsive w-50 mx-auto" alt="maquinaria">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'Catsaweb/images/54.jpg'%}" class=" d-block img-responsive w-50 mx-auto" alt="maquinaria">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Contenedor Flex para toda la pagina */
+
+.backheader {
+    background-image: url("../images/background1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+}
+
+.backheader1 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+nav a:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+.ulBorder{
+    margin-left: 1%;
+    border: 1px solid rgba(9,9,9,0.98);
+    margin-bottom: 2%;
+    padding-bottom: 1%;
+}
+
+/* INDEX */
+
+.textAboutH3 {
+    padding-top: 17%;
+    color: blueviolet;
+}
+.textAboutH1 {
+    padding-top: 10%;
+    color: blueviolet;
+}
+
+.textBanner {
+    margin: 2% 5% 2% 5%;
+    color: white;
+    border: 1px solid blueviolet;
+    background-color: blueviolet;
+    border-radius: 15px;
+    padding: 2% 0 2% 0;
+}
+
+/*Experiencia*/
+.divInfra1 {
+    margin-bottom: 3%;
+}
+.divInfra1 div {
+    align-items: center;
+    padding-top: 2%;
+}
+.divInfra2 div img{
+    align-items: center;
+}
+.divInfra1 div div p{
+    text-align: justify;
+    text-justify: inter-word;
+}
+/*INFRA*/
+.divInfra2 {
+    width: 100%;
+    background-color: lightgray;
+    padding-bottom: 2%;
+    margin-bottom: 3%;
+}
+
+.divInfra2 div h3 {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+
+.divInfra2 div  img {
+    width: 228px;
+    height: 171px;
+    padding-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.divInfra2 div div h5 {
+    padding-top: 5%;
+    text-align: justify-all;
+}
+
+.h3Expiencias {
+    padding-top: 20%;
+    color: blueviolet;
+
+}
+
+/*Contact|*/
+.h4Contact {
+    text-align: center;
+    font-size: 3em;
+    padding-bottom: 3%;
+}
+
+/*Comienza el footer*/
+
+.contenedorFooter{
+    background-color: #dfe6ed
+}
+
+.fa-phone-alt {
+    width: 16px;
+    height: 16px;
+    color: blueviolet;
+}
+
+/*Div Mail*/
+.contenedorMail{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.contenedorFooterBorder {
+    width: 33%;
+}
+
+/*button MAIL*/
+
+.bi-envelope{
+    padding-right: 3%;
+    align-items: center;
+}
+
+.btn1 {
+    will-change: transform;
+    transition: transform 450ms;
+}
+.btn1:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
+.buttonCenter{
+    padding-bottom: 5%;
+}
+.btn1 {
+    width: 100px;
+    height: 50px;
+    border-radius: 25%;
+    border: none;
+    background: blueviolet;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+}
+/*Div Redes Sociales*/
+.socialAlian {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2%;
+}
+
+/*Div Officer*/
+.contenedorOfficer{
+    padding-top: 1%;
+    padding-bottom: 5%;
+    display: flex;
+    width: 33%;
+    height: 70%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.iconsColor {
+    font-size: 54px;
+    color: blueviolet;
+}
+
+.textFooter {
+    color: blueviolet;
+}
+/*booton*/
+#btn-back-to-top {
+    position: fixed;
+    background-color: slateblue;
+    border: slateblue;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+
+
+@media(min-width: 768px) {
+    .hidenBT {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+
+

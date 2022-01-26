@@ -1,0 +1,42 @@
+
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+
+
+<div class="container-fluid col-md-12">
+    <div class="col-md-6 row "></div>
+            <h2>Listado de Clientes</h2>
+            <ul>
+                {% for cliente in clientes %}
+                <a href="{% url 'update_cliente' cliente.id %}">
+                    <li>{{cliente.nombre_cliente}}</li>
+                </a>
+                {%endfor%}
+            </ul>
+
+            {%if clientes %}
+            <a href="{% url 'create_cliente' %}">
+                <button class="btn btn-primary ms-1">Agregar Nuevo Clientes</button>
+            </a>
+            {%endif%}
+    </div>
+    <div class="col-md-6 row "></div>
+            <h2>Listado de Proyectos</h2>
+            <ul>
+                {% for proyecto in proyectos %}
+                <a href="{% url 'update_proyecto' proyecto.id %}">
+                    <li>{{proyecto.nombre_proyecto}}</li>
+                </a>
+                {%endfor%}
+            </ul>
+            {%if proyectos %}
+            <a href="{% url 'create_cliente' %}">
+                <button class="btn btn-primary ms-1">Agregar Nuevo Proyecto</button>
+            </a>
+            {%endif%}
+    </div>  
+</div> 
+{% endblock %}

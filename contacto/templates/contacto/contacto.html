@@ -1,0 +1,72 @@
+{%extends "Catsaweb/base.html"%}
+
+{%load static%}
+
+{%block content%}
+ <div class="container-fluid ">
+        <h4 class="h4Contact">Contactenos</h4>
+        <div class="row pb-3 mx-5" style="background-color: #dfe6ed">
+        <form class="justify-content-center" method="POST">
+            {%csrf_token%}
+            <div class="row justify-content-center g-3" >
+                <div class="col-md-4">
+                    <label for="nombre" class="form-label"></label>
+                    <input class="form-control" type="text" name="Nombre" id="nombre" placeholder="(*) Nombre" value=""
+                           required>
+                    <div class="valid-feedback"></div>
+                </div>
+                <div class="col-md-4">
+                    <label for="apellido" class="form-label"></label>
+                    <input class="form-control" type="text" name="Apellido" id="apellido" placeholder="(*) Apellido"
+                           value="" required>
+                    <div class="valid-feedback"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center g-3">
+                <div class="col-md-4">
+                    <label for="email" class="form-label"></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" class="form-control" id="email" name="Email" aria-describedby="inputGroupPrepend"
+                               required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="telefono" class="form-label"></label>
+                    <input class="form-control" type="tel" name="Telefono" id="telefono" placeholder="Telefono">
+                    <div class="valid-feedback"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center g-3">
+                <div class="col-md-8">
+                    <label for="asunto" class="form-label"></label>
+                    <input class="form-control" type="text" name="Asunto" id="asunto" placeholder="Asunto">
+                    <div class="valid-feedback"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center g-3">
+                <div class="col-md-8">
+                    <label for="Mensaje" class="form-label"></label>
+                    <textarea class="form-control" name="Mensaje" rows="5" id="Mensaje"
+                              placeholder="(*) Mensaje"></textarea>
+                    <div class="valid-feedback"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center g-3">
+                <div class="col-md-8">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Al enviar este formaulario, he leído y acepto la política de privacidad de Catsa Mexico Sa
+                            de
+                            Cv (*)
+                        </label>
+                    </div>
+                    <button class="btn btn-primary float-end" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div> 
+
+    {%endblock%}

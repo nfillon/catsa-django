@@ -1,0 +1,23 @@
+
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+
+
+
+<div class="container-fluid "></div>
+<h3>Agregar/Modificar  Clientes</h3>
+    <div class="row pb-3 mx-5" style="background-color: #dfe6ed">
+        <form class="justify-content-center" method="POST">
+            {% csrf_token %}
+            <h4>Esta seguro que quiero eliminar {{clientes.nombre_cliente}}?</h4>
+            <button class="btn btn-primary float-end m-1" type="submit">Confirmar</button>
+        </form>
+        <a href="{% url 'list_client' %}">
+            <button class="align-self-end btn btn-lg btn-block btn-primary">Regresar</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

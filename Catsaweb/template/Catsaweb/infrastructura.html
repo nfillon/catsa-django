@@ -1,0 +1,86 @@
+
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+<section class="container divInfra1 ">
+    <div class="row">
+         <img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" src="{% static 'Catsaweb/images/infrastructuraImg1.jpg' %}" alt="mapa"/>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <p >
+            Para garantizar el cumplimiento de las especificaciones solicitadas
+            por nuestros clientes, en nuestras Planta de Concreto y Asfalto
+            contamos con laboratorio de control de calidad, para verificar la
+            calidad de los materiales utilizados en la producción.
+            </p>
+            <p>
+            Las instalaciones cuentan con la maquinaria y el equipo con
+            tecnología de punta, cumpliendo con las normas y especificaciones
+            vigentes, tanto en la producción como en la distribución.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="container-fluid divInfra2">
+<div class="row">
+        <h3>DIVISIONES Y LÍNEAS DE NEGOCIO</h3>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <h4 class="list-group-item border-0 active">CONCRETOS HIDRÁULICOS </h4>
+
+            <ul>
+                <li>Resistencia F’C Clase I y II.</li>
+                <li>Concreto MR.</li>
+            </ul>
+            <h4 class="list-group-item border-0 active">EMULSIONES Y ASFALTOS</h4>
+            <ul>
+                <li>Mezclas asfálticas elaboradas en caliente: EKBE, AC20, AC10, ECR-60, ECR-65. asfaltos modificados
+                    con
+                    polímeros.
+                </li>
+                <li>Microcarpetas asfálticas (SMA y de Granulometría Discontinua Tipo CASAA) Cap Grades / Open Graded.
+                </li>
+                <li>Mezclas asfálticas de comportamiento superior</li>
+            </ul>
+            <div>
+                <img  class="img-fluid mx-auto" src="{% static 'Catsaweb/images/InfrastructuraImg2.jpg' %}" alt="maquinaria">
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <h4 class="list-group-item border-0 active" >SERVICIO DE URBANIZACIÓN </h4>
+            <ul>
+                <li>Pavimentacion.</li>
+                <li>Re-pavimentaciones.</li>
+                <li>Rehabilitación de tramos carreteros.</li>
+                <li>Riegos de sello (caliente-frío)</li>
+                <li>Riegos con emulsiones asfálticas.</li>
+            </ul>
+            <h4 class="list-group-item border-0 active">TRANSPORTE</h4>
+            <ul>
+                <li>Acarreo de material pétreo con transporte tipo torton.</li>
+                <li>Acarreo de concreto con mezcladora.</li>
+            </ul>
+            <div>
+                <img class=" img-fluid" src="{% static 'Catsaweb/images/infrastructuraImg3.jpg' %}" alt="Maquinaria">
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <h4 class="list-group-item border-0 active">ILUMINACIÓN Y ELECTRIFICACIÓN</h4>
+            <ul>
+                <li >Alumbrado público</li>
+                <li>Electrificación urbana y rural</li>
+            </ul>
+            <h4 class="list-group-item border-0 active">PROYECTOS Y EDIFICACIÓN</h4>
+            <ul>
+                <li>Proyectos de Ingeniería Civil.</li>
+                <li>Proyectos de Arquitectura</li>
+                <li>COMERCIALIZACIÓN DE MATERIALES DE CONSTRUCCIÓN</li>
+                <li>RENTA DE MAQUINARIA Y EQUIPO</li>
+            </ul>
+            <div>
+                <img class=" img-fluid" src="{% static 'Catsaweb/images/infrascasa1.jpeg' %}" alt="proyectos">
+            </div>
+        </div>
+ </div>
+</section> 
+{% endblock %}

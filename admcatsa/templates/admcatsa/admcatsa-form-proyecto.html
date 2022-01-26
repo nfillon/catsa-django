@@ -1,0 +1,25 @@
+
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+
+
+
+<div class="container-fluid "></div>
+    <h2>Agregar/Modificar Proyectos</h2>
+    <div class="row pb-3 mx-5" style="background-color: #dfe6ed">
+        <form class="justify-content-center mt-2" method="POST">
+            {% csrf_token %}
+            {{formProyecto.as_table}}
+            <button class="align-self-end btn btn-lg btn-block btn-primary" type="submit">Add</button>
+        </form>
+        {%if proyectos %}
+        <a href="{% url 'delete_proyecto' proyectos.id %}">
+            <button class="align-self-end btn btn-lg btn-block btn-primary">Borrar Proyecto</button>
+        </a>
+        {%endif%} 
+    </div>
+</div>
+{% endblock %}
