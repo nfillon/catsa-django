@@ -1,4 +1,8 @@
 
+#from itertools import product
+from multiprocessing.connection import Client
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -26,11 +30,12 @@ class Proyecto(models.Model):
     YEAR_CHOICES = []
     for r in range(2000, (datetime.datetime.now().year+1)):
         YEAR_CHOICES.append((r,r))
-    tipo_proyecto=models.CharField(max_length=50)  
-    nombre_proyecto=models.TextField(max_length=500)
+    nombre_proyecto=models.CharField(max_length=500, blank=False)
+    tipo_proyecto=models.CharField(max_length=50, blank=False)
     year = models.IntegerField(choices=YEAR_CHOICES,default=datetime.datetime.now().year)
     autor=models.ForeignKey(User, on_delete=models.CASCADE)
-    clientes=models.ManyToManyField(Cliente)     
+    clientes=models.ManyToManyField(Cliente, blank=False)
+    imagen =models.ImageField(upload_to="proyectos",  null=True, blank=True, default=None)   
     created=models.DateTimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now_add=True)
     
@@ -39,11 +44,8 @@ class Proyecto(models.Model):
         verbose_name_plural='proyectos' 
     
     def __str__(self):
-        return self.tipo_proyecto
+        return  str(self.year) + " " + self.tipo_proyecto 
     
-    
-    
-            
- 
-   
+     
+
         

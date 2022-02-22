@@ -10,14 +10,14 @@
 <div class="container-fluid "></div>
     <div class="row mt-5 pb-3 mx-5">
         <div class="col-md-6 col-md-6 offset-3" style="background-color: #dfe6ed">
-            <h3>Agregar/Modificar  Clientes</h3>
+            <h3>Eliminar Mensaje</h3>
             <hr>
             <form class="justify-content-center mb-2" method="POST">
                 {% csrf_token %}
-                <h4 class="te">Esta seguro que quiero eliminar {{clientes.nombre_cliente}}?</h4>
+                <h4>Esta seguro que quiero eliminar el de {{deleteMensaje.Nombre}} {{deleteMensaje.Apellido}} con asunto {{deleteMensaje.Asunto}}?</h4>
                 <hr>
                 <button class="align-self-end btn btn-lg btn-block btn-primary" type="submit">Confirmar</button>
-                <a class="mb-3" href="{% url 'list_client' %}">
+                <a class="mb-3" href="{% url 'list_mensajes' %}">
                     <button class="align-self-end btn btn-lg btn-block btn-primary">Regresar</button>
                 </a>
             </form>

@@ -8,7 +8,10 @@ class ClienteAdmin(admin.ModelAdmin):
 
 class ProyectoAdmin(admin.ModelAdmin):
     readonly_fields=('created','updated')
+    
 
-admin.site.register(Cliente, ClienteAdmin)
 
-admin.site.register(Proyecto, ProyectoAdmin)
+admin.site.register(Cliente)
+
+admin.site.register(Proyecto)
+

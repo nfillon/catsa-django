@@ -1,0 +1,20 @@
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+{% load crispy_forms_tags %}
+{%if messages%}
+    {%for message in messages%}
+        <div class="notification {{message.taggs}}">
+          {{message}}
+        </div>
+    {%endfor%}
+{%endif%}   
+
+<h1>Te has Deslogueado</h1>
+
+
+
+
+{% endblock %}o

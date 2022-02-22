@@ -4,23 +4,50 @@
 {% load static%}
 
 {%block content%}
-
-
-<div class="container-fluid ">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <h2>Agregar/Modificar Proyectos</h2>
-        <div class="row pb-3 mx-5" style="background-color: #dfe6ed">
-            <form class="justify-content-center mt-2" method="POST">
-                {% csrf_token %}
-                {{ formProyecto.as_table }}
-                <button class="align-self-end btn btn-lg btn-block btn-primary" type="submit">Add</button>
-            </form>
-            {% if proyectos %}
-                <a href="{% url 'delete_proyecto' proyectos.id %}">
-                    <button class="align-self-end btn btn-lg btn-block btn-primary">Borrar Proyecto</button>
-                </a>
+{%load crispy_forms_tags%}
+<div class="container mt-3">
+    <div class="row " >
+        <div class="col-md-6 col-md-6 offset-3" style="background-color: #dfe6ed">
+            <h2>Agregar/Modificar Proyectos</h2>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p> {{ error }} </p>
+                    {% endfor %}
+                {% endfor %}
             {% endif %}
+            <form class="justify-content-center mt-2" method="POST" enctype="multipart/form-data" id="upload-image-form">
+                {% csrf_token %}
+                {{ formProyecto | crispy}}
+                <br>
+                <p>Foto de Proyecto</p>
+                {%if not formProyecto.imagen.value %}
+                  <p>No hay Foto</p>
+               {%else%}    
+                <div class="img-preview img-preview-sm">
+                    <img src="/media/{{formProyecto.imagen.value}}"  width="400px"  height="400px">
+                </div>
+                {%endif%}
+                <br>
+                <hr> 
+                <button class="align-self-end btn btn-lg btn-block btn-primary" type="submit">Agregar/Actualizar</button>
+            </form>
+            <br>
+            <div class="mb-3">
+            {% if proyectos %}
+            <a href="{% url 'delete_proyecto' proyectos.id %}">
+                <button class="align-self-end btn btn-lg btn-block btn-primary">Borrar Proyecto</button>
+            </a>
+            {% endif %}
+            <a href="{% url 'list_client' %}"><button class="align-self-end btn btn-lg btn-block btn-primary ms-1">Volver al Listado</button></th> </a>         
+
+            </div>    
         </div>
     </div>
 </div>
+
+
+
 {% endblock %}
+
+

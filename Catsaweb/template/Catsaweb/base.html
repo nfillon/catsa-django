@@ -83,6 +83,24 @@
                                     href="{% url 'Contactos' %}"
                             >Contacto</a>
                         </li>
+                        {%if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a href="{%url  'list_mensajes'%}" class="nav-link active" style="color: red">Mensajes</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a href="{%url  'register'%}" class="nav-link active" style="color: red" >Registro</a> 
+                        </li>
+                        <li class="nav-item"> 
+                          <a href="{%url  'logout'%}" class="nav-link active" style="color: red" >Cerrar sesión</a> 
+                        </li>
+                        <li class="nav-item"> 
+                            <a href="#" class="nav-link active" style="color:rgb(126, 192, 126)" >@{{user.username}}</a> 
+                        </li>
+                        {%else%}
+                        <li class="nav-item">
+                          <a href="{%url 'login'%}" class="nav-link active" style="color: red">Inicias Sesión</a>
+                        </li>   
+                        {%endif%}
                     </ul>
                 </div>
             </div>

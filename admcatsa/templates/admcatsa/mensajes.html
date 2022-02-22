@@ -1,0 +1,72 @@
+
+{%extends "Catsaweb/base.html"%}
+
+{% load static%}
+
+{%block content%}
+<div class="container-fluid col-md-12">
+    <div class="col-md-6 row "></div>
+            <h2>Listado de Clientes</h2>
+            <div class="row pt-5 pb-5">
+                <div class="col-md-6 search">
+                    <form method="get">
+                            <div class="input-search-input">
+                                <div class="input-group col-md-12">
+                                    <input  type="text" class="form-control" autocomplete="off" maxlength="50" placeholder="Buscar..." name="buscar" value="{{request.GET.buscar}}">
+                                    <span class="input-group-list">
+                                        <i class="icon icon-search"></i>
+                                        <button type="submit" class="btn btn-success ms-1">Buscar</button>
+                                   </span>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <table  class="table table-striped" style="width: auto"> 
+                <tbody>
+                    <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Asunto</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Telefono</th>
+                          <th scope="col">Mensaje</th>
+                        </tr>  
+                            </thead>
+                             {% for mensaje in mensajes %}
+                        <tr>
+                            <td scope="row">{{mensaje.id}} </td>  
+                            <td scope="row">{{mensaje.created_at |date:"d-m-Y"}} </td> 
+                            <td scope="row">{{mensaje.Nombre}} {{mensaje.Apellido}} </td> 
+                            <td scope="row">{{mensaje.Asunto}} </td>
+                            <td scope="row">{{mensaje.Email}} </td>
+                            <td scope="row">{{mensaje.Telefono}} </td>
+                            <td width=300px scope="row">{{mensaje.Mensaje}} </td>
+                            <td scope="row"><a href="{% url 'delete_mensaje' mensaje.id %}">  <button class="align-self-end btn btn-primary ms-1">Borrar</button></td> </a> 
+                        </tr>
+                    {%endfor%} 
+                </tbody>
+            </table>
+            <br/><br/>
+            <nav aria-label="Page navigation Clientes">
+                <ul class="pagination">
+                    {% if mensajes.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{mensajes.previous_page_number}}">Previous</a></li>
+                    {% endif %}
+            
+                    <!-- {% for i in nums1 %}
+                        <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}"> {{forloop.counter}}</a></li>
+                    {% endfor %} -->
+                    
+                    {% if mensajes.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{mensajes.next_page_number}}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{mensajes.paginator.num_pages}}">Last &raquo</a></li>
+                    {% endif %}
+                </ul>
+            </nav> 
+    </div>
+</div> 
+{% endblock %}

@@ -41,7 +41,16 @@ INSTALLED_APPS = [
     'clientes',
     'contacto',
     'admcatsa',
+    'crispy_forms',
+    "crispy_bootstrap5",
 ]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,13 +125,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-EMAIl_BACKEND="django.core.mail.backends.dummy.EmailBackend"
-EMAIL_HOTST="email-smtp.us-east-1.amazonaws.com"
-EMAIL_USE_TLS=True
-EMAIL_PORT=587
-EMAIL_HOST_USER="AKIAXVIAZ3BTSWGQ5O7T"
-EMAIL_HOST_PASSWORD="BGCJGyhZoS+tyVzWzVBThY/KlkBCEh2ItX/lL5ApZZTU"
-
+# EMAIl_BACKEND="django.core.mail.backends.dummy.EmailBackend"
+# EMAIL_HOTST="email-smtp.us-east-1.amazonaws.com"
+# EMAIL_USE_TLS=True
+# EMAIL_PORT=587
+# EMAIL_HOST_USER="AKIAXVIAZ3BTSWGQ5O7T"
+# EMAIL_HOST_PASSWORD="BGCJGyhZoS+tyVzWzVBThY/KlkBCEh2ItX/lL5ApZZTU"
 
 
 # Static files (CSS, JavaScript, Images)
@@ -136,3 +144,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'list_client'
+LOGOUT_REDIRECT_URL = 'list_client'

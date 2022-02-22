@@ -4,39 +4,126 @@
 {% load static%}
 
 {%block content%}
-
-
-<div class="container-fluid col-md-12">
-    <div class="col-md-6 row "></div>
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-6 ">
             <h2>Listado de Clientes</h2>
-            <ul>
-                {% for cliente in clientes %}
-                <a href="{% url 'update_cliente' cliente.id %}">
-                    <li>{{cliente.nombre_cliente}}</li>
-                </a>
-                {%endfor%}
-            </ul>
-
+            <div class="row pt-5 pb-5">
+                <div class="col-md-6 search">
+                    <form method="get">
+                            <div class="input-search-input">
+                                <div class="input-group col-md-12">
+                                    <input  type="text" class="form-control" autocomplete="off" maxlength="50" placeholder="Buscar..." name="buscar" value="{{request.GET.buscar}}">
+                                    <span class="input-group-list">
+                                        <i class="icon icon-search"></i>
+                                        <button type="submit" class="btn btn-success ms-1">Buscar</button>
+                                   </span>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <table  class="table table-striped" style="width: auto"> 
+                <tbody>
+                    <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Cliente</th>
+                    </thead>
+                    {% for cliente in clientes %}
+                        <tr>
+                            <td scope="row">{{cliente.id}} </td> </a> 
+                            <td scope="row">{{cliente.nombre_cliente}} </td> </a> 
+                            <td scope="row"><a href="{% url 'update_cliente' cliente.id %}">  <button class="align-self-end btn btn-primary ms-1">Actualizar</button></td> </a> 
+                            <td scope="row"><a href="{% url 'delete_cliente' cliente.id %}">  <button class="align-self-end btn btn-primary ms-1">Borrar</button></td> </a> 
+                        </tr>
+                    {%endfor%} 
+                </tbody>
+            </table>
             {%if clientes %}
             <a href="{% url 'create_cliente' %}">
                 <button class="btn btn-primary ms-1">Agregar Nuevo Clientes</button>
             </a>
             {%endif%}
+            <br/><br/>
+            <nav aria-label="Page navigation Clientes">
+                <ul class="pagination">
+                    {% if clientes.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page1=1">&laquo First</a></li>
+                        <li class="page-item"><a class="page-link" href="?page1={{clientes.previous_page_number}}">Previous</a></li>
+                    {% endif %}
+            
+                    <!-- {% for i in nums1 %}
+                        <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}"> {{forloop.counter}}</a></li>
+                    {% endfor %} -->
+                    
+                    {% if clientes.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page1={{clientes.next_page_number}}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page1={{clientes.paginator.num_pages}}">Last &raquo</a></li>
+                    {% endif %}
+                </ul>
+            </nav> 
     </div>
-    <div class="col-md-6 row "></div>
-            <h2>Listado de Proyectos</h2>
-            <ul>
-                {% for proyecto in proyectos %}
-                <a href="{% url 'update_proyecto' proyecto.id %}">
-                    <li>{{proyecto.nombre_proyecto}}</li>
-                </a>
-                {%endfor%}
+    <div class="col-md-6" >
+        <h2>Listado de Proyectos</h2>
+        <div class="row pt-5 pb-5">
+            <div class="col-md-6 search">
+                <form method="GET">
+                        <div class="input-search-input">
+                            <div class="input-group col-md-12">
+                                <input  type="text" class="form-control" autocomplete="off" maxlength="50" placeholder="Buscar..." name="buscarproyectos" value="{{request.GET.buscarproyectos}}">
+                                <span class="input-group-list">
+                                    <i class="icon icon-search"></i>
+                                    <button type="submit" class="btn btn-success ms-1">Buscar</button>
+                               </span>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+        <table  class="table table-striped" style="width: auto"> 
+
+            <tbody> 
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Cliente</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Año</th>
+                      <th scope="col">Autor</th>
+                    </tr>
+                </thead>
+                 {% for proyecto in proyectos %}
+                <tr>
+                    <td scope="row">{{proyecto.id}}</td> {%for clientes in proyecto.clientes.all %} <td scope="row">{{ clientes }}</td> {% endfor %} <td scope="row">{{proyecto.tipo_proyecto}}</td><td scope="row">{{proyecto.year}}</td> <td scope="row">{{proyecto.autor}}</td>  
+                    <th scope="row"><a href="{% url 'update_proyecto' proyecto.id %}"><button class="align-self-end btn btn-primary ms-1">Actualizar</button></th> </a> 
+                    <th scope="row"><a href="{% url 'delete_proyecto' proyecto.id %}">  <button class="align-self-end btn btn-primary ms-1">Borrar</button></th> </a> 
+                </tr>
+            {%endfor%}
+           </tbody>
+        </table>
+        {%if proyectos %}
+        <a href="{% url 'create_proyecto' %}">
+            <button class="btn btn-primary ms-1">Agregar Nuevo Proyecto</button>
+        </a>
+        {%endif%}
+        <br/><br/>
+        <nav aria-label="Page navigation Proyectos">
+            <ul class="pagination">
+
+                {% if proyectos.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page2=1">&laquo First</a></li>
+                      <li class="page-item"><a class="page-link" href="?page2={{proyectos.previous_page_number}}">Previous</a></li>
+                {% endif %}
+                <!-- {% for i in nums %}
+                    <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}"> {{forloop.counter}}</a></li>
+                {% endfor %} -->
+                {% if proyectos.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page2={{proyectos.next_page_number}}">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page2={{proyectos.paginator.num_pages}}">Last &raquo</a></li>
+                {% endif %}
             </ul>
-            {%if proyectos %}
-            <a href="{% url 'create_proyecto' %}">
-                <button class="btn btn-primary ms-1">Agregar Nuevo Proyecto</button>
-            </a>
-            {%endif%}
+        </nav> 
     </div>  
-</div> 
+ </div>
 {% endblock %}
